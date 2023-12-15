@@ -11,9 +11,11 @@ class InquiryController extends Controller
 {
     public function Index()
     {
-        return view('admin.inquiry.index', [
+        return response()->view('admin.inquiry.index', [
             'inquiries' => Inquiry::orderBy('created_at', 'DESC')->get()
-        ]);
+        ])->header('Cache-Control', 'no-cache, no-store, must-revalidate')
+            ->header('Pragma', 'no-cache')
+            ->header('Expires', '0');
     }
 
     public function destroy(Inquiry $id)

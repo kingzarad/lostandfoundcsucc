@@ -10,7 +10,12 @@ class AuthController extends Controller
 {
     public function login()
     {
-        return view('admin.login.index');
+        if(auth()->check()){
+            return redirect()->route('admin');
+        }
+        return response()->view('admin.login.index')->header('Cache-Control', 'no-cache, no-store, must-revalidate')
+        ->header('Pragma', 'no-cache')
+        ->header('Expires', '0');
     }
 
     public function authenticate()
@@ -42,6 +47,8 @@ class AuthController extends Controller
     public function logout()
     {
         auth()->logout();
-        return redirect()->route('login');
+        return redirect()->route('login')->header('Cache-Control', 'no-cache, no-store, must-revalidate')
+        ->header('Pragma', 'no-cache')
+        ->header('Expires', '0');
     }
 }

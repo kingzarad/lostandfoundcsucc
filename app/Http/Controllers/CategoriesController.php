@@ -12,7 +12,10 @@ class CategoriesController extends Controller
     public function Index()
     {
 
-        return view('admin.category.index', ['categories' => Categories::orderBy('created_at', 'DESC')->get()]);
+        return response()->view('admin.category.index', ['categories' => Categories::orderBy('created_at', 'DESC')->get()])->header('Cache-Control', 'no-cache, no-store, must-revalidate')
+        ->header('Pragma', 'no-cache')
+        ->header('Expires', '0');
+
     }
 
     public function store()
