@@ -15,11 +15,12 @@ class Items extends Model
         'phonenum',
         'foundby',
         'turnedInto',
-        'returnTo',
+        'purpose',
         'status',
         'published',
         'date',
         'categories_id',
+        'image'
     ];
 
     use HasFactory;

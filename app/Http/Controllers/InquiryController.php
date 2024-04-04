@@ -11,9 +11,7 @@ class InquiryController extends Controller
 {
     public function Index()
     {
-        return response()->view('admin.inquiry.index', [
-            'inquiries' => Inquiry::orderBy('created_at', 'DESC')->get()
-        ])->header('Cache-Control', 'no-cache, no-store, must-revalidate')
+        return response()->view('admin.inquiry.index')->header('Cache-Control', 'no-cache, no-store, must-revalidate')
             ->header('Pragma', 'no-cache')
             ->header('Expires', '0');
     }

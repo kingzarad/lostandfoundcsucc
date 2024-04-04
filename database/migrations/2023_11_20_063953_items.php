@@ -19,10 +19,11 @@ return new class extends Migration
             $table->string('phonenum');
             $table->string('foundby');
             $table->string('turnedInto');
-            $table->string('returnTo');
+            $table->string('purpose');
             $table->string('status');
             $table->string('published');
             $table->string('date');
+            $table->string('image');
             $table->foreignId('categories_id')->constrained('categories')->cascadeOnDelete();
             $table->timestamps();
         });

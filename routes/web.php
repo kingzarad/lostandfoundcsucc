@@ -47,9 +47,8 @@ Route::middleware(['auth'])->group(function () {
 
     // route for items
     Route::get('/admin/items/add', [ItemsController::class, 'add'])->name('items.form');
-    Route::get('/admin/items/edit/{id}', [ItemsController::class, 'show'])->name('items.show');
-    Route::post('/admin/items/add', [ItemsController::class, 'store'])->name('items.store');
-    Route::put('/admin/items/update/{items}', [ItemsController::class, 'update'])->name('items.update');
+    Route::get('/admin/items/edit/', [ItemsController::class, 'show'])->name('items.show');
+ //  Route::put('/admin/items/update/{items}', [ItemsController::class, 'update'])->name('items.update');
     Route::delete('/admin/items/delete/{id}', [ItemsController::class, 'destroy'])->name('items.destroy');
 
     // route for inquiry
