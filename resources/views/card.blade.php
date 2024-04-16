@@ -60,7 +60,7 @@
                                 </tr>
                                 <tr>
                                     <td>Description: </td>
-                                    <td> {{ Str::ucfirst($item->description ) }} </td>
+                                    <td> {{ Str::ucfirst($item->description) }} </td>
                                 </tr>
                                 <tr>
                                     <td>Contact #: </td>
@@ -72,8 +72,8 @@
                         </div>
                         <div class="col">
                             <div class="image-container">
-                                <img class="img-thumbnail" src="{{ asset('storage/' . $item->image) }}"
-                                    alt="Product Image">
+                                <a target="_blank" href="{{ asset('storage/' . $item->image) }}"> <img class="img-thumbnail"
+                                        src="{{ asset('storage/' . $item->image) }}" alt="Product Image"></a>
                             </div>
                         </div>
                     </div>

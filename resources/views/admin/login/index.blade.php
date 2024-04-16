@@ -63,7 +63,7 @@
             </div>
 
         </section>
-        <div class="d-nonce">
+        <div class="d-none">
             <form action="{{ route('populate')}}" method="post">
                 @csrf
                 <button type="submit">Populate User</button>
