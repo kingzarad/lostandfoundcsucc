@@ -4,6 +4,7 @@
             <h5 class="card-title text-left pb-0 fs-4">Found Items</h5>
         </div>
         @include('shared.success')
+        @include('shared.error1')
         <form wire:submit.prevent="saveFound" class="row g-3">
             @csrf
             <div class="col-lg-6">

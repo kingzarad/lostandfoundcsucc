@@ -4,6 +4,7 @@
             <h5 class="card-title text-left pb-0 fs-4">Lost Items</h5>
         </div>
         @include('shared.success')
+        @include('shared.error')
         <form wire:submit.prevent="saveLost" class="row g-3">
 
             <div class="col-lg-6">

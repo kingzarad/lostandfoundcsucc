@@ -21,8 +21,20 @@ class CategoriesController extends Controller
     public function store()
     {
         request()->validate([
-            'name' => 'required|min:5|max:50'
+            'name' => [
+                'required',
+                'min:5',
+                'max:50',
+                'regex:/^(?!.*(\w)\1{2,}).+$/'
+            ]
+        ], [
+            'name.regex' => 'The name field cannot contain repeated characters.'
         ]);
+        $existingCategory = Categories::where('categories_name', request()->get('name'))->first();
+
+        if ($existingCategory) {
+            return redirect()->route('category.form')->with('error', 'Category already exists!');
+        }
 
         $categories = Categories::create([
             'categories_name' => request()->get('name')
@@ -45,7 +57,14 @@ class CategoriesController extends Controller
     public function update(Categories $categories)
     {
         request()->validate([
-            'name' => 'required|min:5|max:50'
+            'name' => [
+                'required',
+                'min:5',
+                'max:50',
+                'regex:/^(?!.*(\w)\1{2,}).+$/'
+            ]
+        ], [
+            'name.regex' => 'The name field cannot contain repeated characters.'
         ]);
 
         $categories->categories_name = request()->get('name', '');
