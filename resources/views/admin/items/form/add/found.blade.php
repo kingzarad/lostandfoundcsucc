@@ -48,6 +48,7 @@
                         @enderror
                     </div>
                 </div>
+
             </div>
             <div class="col-lg-6 ">
 
@@ -122,7 +123,8 @@
 
                 <div class="mb-3">
                     <label for="image" class="form-label">Upload Image</label>
-                    <input type="file" wire:model="image_f"  id="image_f" accept="image/*" class="form-control">
+                    <input type="file" wire:model="image_f" id="image_f" accept="image/*"
+                        class="form-control">
                     @error('image_f')
                         <span class="d-block text-danger fs-6 mt-1">{{ $message }}</span>
                     @enderror
@@ -130,16 +132,15 @@
 
                 <div class="mb-3">
                     @if ($image_f)
-                    <div class="col-md-3 mb-2">
-                        <div class="image-container">
-                            <img class="img-thumbnail" src="{{ $image_f->temporaryUrl() }}">
+                        <div class="col-md-3 mb-2">
+                            <div class="image-container">
+                                <img class="img-thumbnail" src="{{ $image_f->temporaryUrl() }}">
+                            </div>
                         </div>
-                    </div>
-                @endif
+                    @endif
 
-                <button class=" mt-3 btn btn-success" style="width:200px"
-                    type="submit">Submit</button>
-            </div>
+                    <button class=" mt-3 btn btn-success" style="width:200px" type="submit">Submit</button>
+                </div>
 
         </form>
 

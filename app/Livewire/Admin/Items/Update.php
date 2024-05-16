@@ -13,7 +13,7 @@ class Update extends Component
     use WithFileUploads;
 
     public $items, $categories;
-    public $item_id,$image_d, $foundby, $description, $description_f, $location, $location_f, $phone, $phone_f, $email, $turnedin, $status, $status_f, $published, $published_f, $categories_id, $categories_id_f, $date, $date_f, $image, $image_f;
+    public $item_id,$image_d,$studid,$studname, $foundby, $description, $description_f, $location, $location_f, $phone, $phone_f, $email, $turnedin, $status, $status_f, $published, $published_f, $categories_id, $categories_id_f, $date, $date_f, $image, $image_f;
 
     public function mount()
     {
@@ -41,6 +41,8 @@ class Update extends Component
             $this->date = $this->items->date;
             $this->date_f = $this->items->date;
             $this->image_d = $this->items->image;
+            $this->studid = $this->items->schoolid;
+            $this->studname = $this->items->nameclaim;
            // $this->image_f = $this->items->image;
         } else {
             $this->redirect('/admin/items', navigate: true);
@@ -65,8 +67,11 @@ class Update extends Component
             'published_f' => 'required|min:3|max:50',
             'categories_id_f' => 'required',
             'image_f' => 'nullable|image',
-
+            'studid' => 'required',
+            'studname' => 'required',
         ], [
+            'studid.required' => 'The student id field is required.',
+            'studname.required' => 'The student name field is required.',
             'turnedin.required' => 'The turn into field is required.',
             'description_f.required' => 'The description field is required.',
             'location_f.required' => 'The location field is required.',
@@ -103,6 +108,8 @@ class Update extends Component
             'status' => $validData['status_f'],
             'published' => $validData['published_f'],
             'date' => $validData['date_f'],
+            'schoolid' => $validData['studid'],
+            'nameclaim' => $validData['studname'],
             'categories_id' => $validData['categories_id_f'],
 
         ];

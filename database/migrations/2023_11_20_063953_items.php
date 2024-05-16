@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('published');
             $table->string('date');
             $table->string('image');
+            $table->string('schoolid');
+            $table->string('nameclaim');
             $table->foreignId('categories_id')->constrained('categories')->cascadeOnDelete();
             $table->timestamps();
         });

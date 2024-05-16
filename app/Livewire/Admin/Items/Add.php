@@ -102,6 +102,8 @@ class Add extends Component
             'published' => $validData['published_f'],
             'date' => $validData['date_f'],
             'image' => $imagePath,
+            'schoolid' => '',
+            'nameclaim' => '',
             'categories_id' => $validData['categories_id_f'],
         ]);
         $items->save();
@@ -164,6 +166,8 @@ class Add extends Component
             'published' => $validData['published'],
             'date' => $validData['date'],
             'image' => $imagePath,
+            'schoolid' => '',
+            'nameclaim' => '',
             'categories_id' => $validData['categories_id'],
         ]);
         $items->save();

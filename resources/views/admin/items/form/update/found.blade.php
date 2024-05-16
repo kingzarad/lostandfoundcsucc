@@ -47,6 +47,25 @@
                         @enderror
                     </div>
                 </div>
+                <div class="row border p-2 border-secondary">
+                    <div class="col-sm-12">
+                        <p for="" class="form-label"><strong>Claimend By</strong> (Note: Update Only if already claimed.)</p>
+                    </div>
+                    <div class="mb-3 col">
+                        <label for="" class="form-label">Student ID</label>
+                        <input type="text" wire:model="studid" id="studid" class="form-control">
+                        @error('studid')
+                            <span class="d-block text-danger fs-6 mt-1">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mb-3 col">
+                        <label for="" class="form-label">Student Name</label>
+                        <input type="text" wire:model="studname" id="studname" class="form-control">
+                        @error('studname')
+                            <span class="d-block text-danger fs-6 mt-1">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
             </div>
             <div class="col-lg-6 ">
 
@@ -68,7 +87,7 @@
                                 <option value="" selected>Choose...</option>
 
                                 <option value="unclaimed">Unclaimed </option>
-                                <option value="claimed">Claimed</option>
+                                <option value="claimed" selected>Claimed</option>
 
                             </select>
                             @error('status_f')

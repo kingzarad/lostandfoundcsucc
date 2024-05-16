@@ -72,15 +72,23 @@
                         </div>
                         <div class="col">
                             <div class="image-container">
-                                <a target="_blank" href="{{ asset('storage/' . $item->image) }}"> <img class="img-thumbnail"
-                                        src="{{ asset('storage/' . $item->image) }}" alt="Product Image"></a>
+                                <a target="_blank" href="{{ asset('storage/' . $item->image) }}"> <img
+                                        class="img-thumbnail" src="{{ asset('storage/' . $item->image) }}"
+                                        alt="Product Image"></a>
                             </div>
                         </div>
                     </div>
-                    <div class="alert border-primary alert-dismissible fade show mt-3" role="alert">
-                        <i class="bi bi-question me-1"></i>
-                        For more detail, please <a href="#contact">contact</a> us or visit us in our office.
-                    </div>
+                    @if ($item->schoolid != '' && $item->nameclaim != '' && $item->status == 'claimed')
+                        <div class="alert border-success alert-dismissible fade show mt-3" role="alert">
+                           Claimed By: {{ Str::ucfirst($item->nameclaim ) }} | {{ Str::ucfirst($item->schoolid ) }}
+                        </div>
+                    @else
+                        <div class="alert border-primary alert-dismissible fade show mt-3" role="alert">
+                            <i class="bi bi-question me-1"></i>
+                            For more detail, please <a href="#contact">contact</a> us or visit us in our office.
+                        </div>
+                    @endif
+
 
                 </div>
 

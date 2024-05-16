@@ -20,7 +20,10 @@ class Items extends Model
         'published',
         'date',
         'categories_id',
-        'image'
+        'image',
+        'schoolid',
+        'nameclaim'
+
     ];
 
     use HasFactory;
